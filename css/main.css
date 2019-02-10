@@ -85,7 +85,7 @@ hr {
 }
 
 .screen {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0);
@@ -132,7 +132,6 @@ hr {
     width: 131px;
     height: 100%;
     border-right: 1px solid #1d1d1d;
-    border-bottom: 0 solid #1d1d1d;
     transition: .3s;
     border-bottom: 6px solid #1e1e1e;
 }
@@ -152,7 +151,7 @@ hr {
 
 aside {
     z-index: 2;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     background-color: #292929;
@@ -371,13 +370,13 @@ footer .copyrights {
         display: flex;
     }
 
-    .nav-item {
+    /* .nav-item {
         border: none;
     }
 
     .nav-item:hover {
         height: calc(100% + 6px);
-    }
+    } */
 
     .hamburger {
         display: none;
@@ -394,6 +393,10 @@ footer .copyrights {
     .modal-content {
         width: 600px;
         height: 500px;
+    }
+
+    .screen {
+        display: none;
     }
 }
 
@@ -454,6 +457,10 @@ footer .copyrights {
     .modal-content {
         width: 600px;
         height: 500px;
+    }
+
+    .screen {
+        display: none;
     }
 }
 
