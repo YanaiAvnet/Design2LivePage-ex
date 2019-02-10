@@ -223,7 +223,7 @@ main .wrapper {
 
 .blog-item {
     margin-bottom: 60px;
-    padding: 0 20px;
+    padding: 0;
     flex-direction: column;
 }
 
@@ -238,6 +238,7 @@ main .wrapper {
     align-items: flex-start;
     /* height: 307px; */
     height: 250px;
+    padding: 0 20px;
 }
 
 .blog-item h2 {
@@ -385,6 +386,7 @@ footer .copyrights {
     .blog-item {
         flex-direction: row;
         margin-bottom: 80px;
+        padding: 0 20px;
     }
 
     .blog-item img {
@@ -396,6 +398,7 @@ footer .copyrights {
 
     .blog-text {
         height: 307px;
+        padding: 0;
     }
 
     aside {
@@ -448,7 +451,7 @@ footer .copyrights {
     }
 }
 
-@media (min-width: 960px) and (max-width: 1092px) {
+@media (min-width: 870px) and (max-width: 1092px) {
 
     .main-header {
         height: 80px;
@@ -458,15 +461,18 @@ footer .copyrights {
         flex-direction: row;
         max-height: 307px;
         margin-bottom: 80px;
+        padding: 0 20px;
     }
 
     .blog-item img {
-        margin: 0 30px;
+        width: 47%;
+        margin: 0 30px 0 0;
         height: unset;
     }
 
     .blog-text {
         height: 307px;
+        padding: 0;
     }
 
     aside {
@@ -523,8 +529,11 @@ footer .copyrights {
     }
 }
 
+@media (min-width: 520px) and (max-width: 870px) {
 
-@media (min-width: 520px) and (max-width: 960px) {
+    .blog-item {
+        padding: 0;
+    }
 
     .blog-item img {
         height: unset;
@@ -532,6 +541,7 @@ footer .copyrights {
 
     .blog-text {
         height: 307px;
+        padding: 20px;
     }
 
     html {
