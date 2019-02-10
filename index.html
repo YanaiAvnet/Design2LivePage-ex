@@ -20,7 +20,13 @@
             </div>
             <button class="hamburger" onclick="toggleAside(event)">☰</button>
             <nav class="main-nav">
-                <a href="#" class="nav-item flex align-center space-around">Journal</a>
+                <div class="drop-top hidden flex column"  onmouseout="closeDropDown(event)" onmouseover="onDropDownMenu(event)">
+                    <a href="#" class="drop-item flex align-center space-around">October 2016</a>
+                    <a href="#" class="drop-item flex align-center space-around">January 2017</a>
+                    <a href="#" class="drop-item flex align-center space-around">April 2017</a>
+                    <a href="#" class="drop-item flex align-center space-around">June 2017</a>
+                </div>
+                <a href="#" class="nav-item flex align-center space-around" onmouseout="closeDropDown(event)" onmouseover="onDropDownMenu(event)">Journal</a>
                 <a href="#" class="nav-item flex align-center space-around">About</a>
                 <a href="#" class="nav-item flex align-center space-around">Work</a>
                 <a href="#" class="nav-item flex align-center space-around">Contact</a>
@@ -29,7 +35,13 @@
     </header>
     <aside class="hidden">
         <nav class="aside-nav flex column">
-            <a href="#" class="nav-item flex align-center space-around">Journal</a>
+            <div class="drop-side hidden flex column">
+                <a href="#" class="drop-item flex align-center space-around">October 2016</a>
+                <a href="#" class="drop-item flex align-center space-around">January 2017</a>
+                <a href="#" class="drop-item flex align-center space-around">April 2017</a>
+                <a href="#" class="drop-item flex align-center space-around">June 2017</a>
+            </div>
+            <a href="#" class="nav-item flex align-center space-around" onclick="onDropDownMenu(event)">Journal</a>
             <a href="#" class="nav-item flex align-center space-around">About</a>
             <a href="#" class="nav-item flex align-center space-around">Work</a>
             <a href="#" class="nav-item flex align-center space-around">Contact</a>
@@ -132,6 +144,8 @@
             ev.stopPropagation();
             document.querySelector('aside').classList.toggle('hidden');
             document.querySelector('.screen').classList.toggle('hide');
+            document.querySelector('.drop-side').classList.add('hidden');
+            document.querySelector('.drop-top').classList.add('hidden');
         }
         function onOpenModal(blogItemNum) {
             var elModal = document.querySelector('.modal')
@@ -142,6 +156,16 @@
         }
         function onCloseModal(blogItemNum) {
             document.querySelector('.modal').classList.add('hide');
+        }
+        function onDropDownMenu(ev) {
+            ev.stopPropagation();
+            document.querySelector('.drop-top').classList.toggle('hidden');
+            document.querySelector('.drop-side').classList.toggle('hidden');
+        }
+        function closeDropDown(ev) {
+            ev.stopPropagation();
+            document.querySelector('.drop-top').classList.add('hidden');
+            document.querySelector('.drop-side').classList.add('hidden');
         }
     </script>
 </body>
