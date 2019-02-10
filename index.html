@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="screen" onclick="toggleAside(event)"></div>
+    <div class="screen hide" onclick="toggleAside(event)"></div>
     <header class="main-header">
         <div class="wrapper flex align-center space-between">
             <div class="logo">
@@ -27,7 +27,7 @@
             </nav>
         </div>
     </header>
-    <aside>
+    <aside class="hidden">
         <nav class="aside-nav flex column">
             <a href="#" class="nav-item flex align-center space-around">Journal</a>
             <a href="#" class="nav-item flex align-center space-around">About</a>
@@ -42,48 +42,49 @@
                     <div class="blog-item flex">
                         <img src="img/001.png" alt="">
                         <div class="blog-text flex column">
-                            <h2>Duis aute irure dolor in
+                            <h2>1Duis aute irure dolor in
                                 henderit in voluptate.</h2>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            <p>1Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                                 commo
                                 doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
                                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                 nulla
                                 pariatur...</p>
-                            <button>Continue Reading <span>&nbsp; →</span></button>
+                            <button onclick="onOpenModal(1)">Continue Reading <span>&nbsp; →</span></button>
                         </div>
+                        <hr>
                     </div>
-                    <hr>
+
                     <div class="blog-item flex">
                         <img src="img/002.png" alt="">
                         <div class="blog-text flex column">
-                            <h2>Duis aute irure dolor in
+                            <h2>2Duis aute irure dolor in
                                 henderit in voluptate.</h2>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            <p>2Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                                 commo
                                 doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
                                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                 nulla
                                 pariatur...</p>
-                            <button>Continue Reading <span>&nbsp; →</span> </button>
+                            <button onclick="onOpenModal(2)">Continue Reading <span>&nbsp; →</span> </button>
                         </div>
+                        <hr>
                     </div>
-                    <hr>
                     <div class="blog-item flex">
                         <img src="img/003.png" alt="">
                         <div class="blog-text flex column">
-                            <h2>Duis aute irure dolor in
+                            <h2>3Duis aute irure dolor in
                                 henderit in voluptate.</h2>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            <p>3Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                                 commo
                                 doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
                                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                 nulla
                                 pariatur...</p>
-                            <button>Continue Reading <span>&nbsp; →</span> </button>
+                            <button onclick="onOpenModal(3)">Continue Reading <span>&nbsp; →</span> </button>
                         </div>
                     </div>
                 </div>
@@ -114,11 +115,33 @@
             </a>
         </div>
     </footer>
+    <div class="modal hide flex align-center space-around">
+        <div class="modal-content flex column align-center space-between">
+            <h2></h2>
+            <p></p>
+            <h3>Join us to get access to the latest stories!</h3>
+            <input type="email" placeholder="example@email.com">
+            <div class="modal-buttons flex space-between">
+                <button onclick="onCloseModal()">Submit</button>
+                <button onclick="onCloseModal()">Close</button>
+            </div>
+        </div>
+    </div>
     <script>
         function toggleAside(ev) {
             ev.stopPropagation();
             document.querySelector('aside').classList.toggle('hidden');
             document.querySelector('.screen').classList.toggle('hide');
+        }
+        function onOpenModal(blogItemNum) {
+            var elModal = document.querySelector('.modal')
+            var elBlogItem = document.querySelector(`.blog-item:nth-child(${blogItemNum})`)
+            elModal.classList.remove('hide');
+            elModal.querySelector('h2').innerHTML = elBlogItem.querySelector('h2').innerHTML;
+            elModal.querySelector('p').innerHTML = elBlogItem.querySelector('p').innerHTML;
+        }
+        function onCloseModal(blogItemNum) {
+            document.querySelector('.modal').classList.add('hide');
         }
     </script>
 </body>
